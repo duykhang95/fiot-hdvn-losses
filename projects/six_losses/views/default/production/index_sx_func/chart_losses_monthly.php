@@ -33,11 +33,11 @@
         $data_output_zero = [];
     }
 
-    for($i = 0; $i < count($data_output_zero); $i++){
-        if($data_output_zero[$i][2]){
+    // for($i = 0; $i < count($data_output_zero); $i++){
+    //     if($data_output_zero[$i][2]){
             
-        }
-    }
+    //     }
+    // }
     print_r($data_output_zero);
 
     // $arr_shortDT_losses = array();
