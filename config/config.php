@@ -4,7 +4,7 @@ server with default setting (user 'root' with no password) */
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
-define('DB_NAME', 'fiot_losses');
+define('DB_NAME', 'fiot_hdvn_losses');
 
 // define('DB_SERVER', '192.168.1.100');
 // define('DB_USERNAME', 'hdvn');

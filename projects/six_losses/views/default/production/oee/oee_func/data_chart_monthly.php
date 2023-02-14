@@ -76,7 +76,8 @@
 
     //output target for one day
     // $output_standard = "SELECT sum(output_target) AS output_std FROM " . $select_line . "_output_target " . "ORDER BY id ASC";
-    $output_standard = "SELECT sum(output_target) AS output_std FROM " . "aw3_output_target " . "ORDER BY id ASC";
+
+    $output_standard = "SELECT sum(output_target) AS output_std FROM " . "aw3_output_target " . "WHERE id BETWEEN 1 AND 16";
     $result_output_standard = mysqli_query($connect, $output_standard);
     if($result_output_standard && $result_output_standard -> num_rows > 0){
         while ($row = mysqli_fetch_array($result_output_standard)) { 
@@ -118,7 +119,7 @@
         $period_shortDt_daily = 0;
         for($x = 0; $x < count($data_short_dt); $x++){
             if($data_short_dt[$x][2] >= ($arr_day[$i] . " 06:00:00") && $data_short_dt[$x][2] < ($arr_day[$i+1] . " 06:00:00")){
-                $period_shortDt_daily += ($data_short_dt[$x][0] / (60* 1275)) * 100;
+                $period_shortDt_daily += ($data_short_dt[$x][0] / (60* 860)) * 100;
                 // echo $period_shortDt_daily . "<br>";
             }
         }
@@ -156,7 +157,7 @@
         $period_longDt_daily = 0;
         for($x = 0; $x < count($data_long_dt); $x++){
             if($data_long_dt[$x][2] >= ($arr_day[$i] . " 06:00:00") && $data_long_dt[$x][2] < ($arr_day[$i+1] . " 06:00:00")){
-                $period_longDt_daily += ($data_long_dt[$x][0] / (60*1275)) * 100;
+                $period_longDt_daily += ($data_long_dt[$x][0] / (60*860)) * 100;
                 // echo $period_shortDt_daily . "<br>";
                 
             }
@@ -192,7 +193,7 @@
             if($data_output_ng[$x][1] >= ($arr_day[$i] . " 06:00:00") && $data_output_ng[$x][1] < ($arr_day[$i+1] . " 06:00:00")){
                 $period_outputNg_daily = (int)$data_output_ng[$x][0];
                 $period_outputNg_daily++;
-                $period_outputNg_daily = (($period_outputNg_daily * 3.8) / (60 * 1275)) * 100;
+                $period_outputNg_daily = (($period_outputNg_daily * 3.8) / (60 * 860)) * 100;
                 // echo $period_outputNg_daily . "<br>";
             }
         }
@@ -231,7 +232,7 @@
         for($x = 0; $x < count($data_speed); $x++){
             if($i <(count($arr_day)-1) && $data_speed[$x][1] >= ($arr_day[$i] . " 06:00:00") && $data_speed[$x][1] < ($arr_day[$i+1] . " 06:00:00")){
                 // $period_speed_daily += round((($data_speed[$x][0] / 60) / 1275) * 100, 2);
-                $period_speed_daily += ($data_speed[$x][0] / (60*1275)) * 100;
+                $period_speed_daily += ($data_speed[$x][0] / (60*860)) * 100;
                 // echo $data_speed[$x][1] . "<br>";
                 // echo $period_speed_daily . "<br>";
             }
@@ -264,7 +265,7 @@
         $period_prepare_daily = 0;
         for($x = 0; $x < count($data_prepare); $x++){
             if($data_prepare[$x][1] >= ($arr_day[$i] . " 06:00:00") && $data_prepare[$x][1] < ($arr_day[$i+1] . " 06:00:00")){
-                $period_prepare_daily += ($data_prepare[$x][0] / (60*1275)) * 100;
+                $period_prepare_daily += ($data_prepare[$x][0] / (60*860)) * 100;
                 // echo $period_speed_daily . "<br>";
             }
         }
@@ -297,7 +298,7 @@
         $period_wire_electrode_daily = 0;
         for($x = 0; $x < count($data_wire_electrode); $x++){
             if($data_wire_electrode[$x][1] >= ($arr_day[$i] . " 06:00:00") && $data_wire_electrode[$x][1] < ($arr_day[$i+1] . " 06:00:00")){
-                $period_wire_electrode_daily += ($data_wire_electrode[$x][0] / (60 * 1275)) * 100;
+                $period_wire_electrode_daily += ($data_wire_electrode[$x][0] / (60 * 860)) * 100;
                 // echo $period_speed_daily . "<br>";
             }
         }
@@ -328,7 +329,7 @@
         $period_change_code_daily = 0;
         for($x = 0; $x < count($data_change_code); $x++){
             if($data_change_code[$x][1] >= ($arr_day[$i] . " 06:00:00") && $data_change_code[$x][1] < ($arr_day[$i+1] . " 06:00:00")){
-                $period_change_code_daily += ($data_change_code[$x][0] / (60 * 1275)) * 100;
+                $period_change_code_daily += ($data_change_code[$x][0] / (60 * 860)) * 100;
                 // echo $period_speed_daily . "<br>";
             }
         }
