@@ -18,7 +18,7 @@
     $previous_2month_tmp = mktime(0, 0, 0, date("m")-2 , date("d"), date("Y"));
     $previous_2month = date('Y-m', $previous_2month_tmp);
 
-    $sql_zeroOutput = "SELECT * FROM " . $select_line . "_output_5 WHERE output = 0 and time LIKE '2023-01%'";
+    $sql_zeroOutput = "SELECT * FROM " . $select_line . "_output_5 WHERE output = 0 and time LIKE '2023-02%'";
     $result_zeroOutput = mysqli_query( $connect, $sql_zeroOutput );
     if ($result_zeroOutput && $result_zeroOutput->num_rows > 0) {
         $i = 0;
